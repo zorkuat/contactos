@@ -7,6 +7,7 @@
 //
 
 #import "ListadoContactosControler.h"
+#import "DetalleContactoController.h"
 
 @interface ListadoContactosControler ()
 
@@ -29,15 +30,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+    
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
+// #warning Incomplete implementation, return the number of sections
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
+// #warning Incomplete implementation, return the number of rows
     return self.bbdd.contactos.count;
 }
 
@@ -52,6 +59,24 @@
     return cell;
 }
 
+// Este método es el Adolfo Suárez de los métodos.
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"verContacto"])
+    {
+        // Generamos una variable auxiliar recuperando el contacto desde la fila seleccionada ppor el usuario.
+        int filaSeleccionada = (int)self.tableView.indexPathForSelectedRow.row;
+     
+        Contacto * contactoSeleccionado = self.bbdd.contactos[filaSeleccionada];
+        
+        DetalleContactoController *escenaDestino = segue.destinationViewController;
+        
+        // Vamos a pasar la información
+        escenaDestino.contacto = contactoSeleccionado;
+        
+    }
+ 
+}
 
 /*
 // Override to support conditional editing of the table view.

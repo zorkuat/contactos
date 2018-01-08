@@ -9,14 +9,45 @@
 #import "EditarContactoController.h"
 
 @interface EditarContactoController ()
+@property (weak, nonatomic) IBOutlet UITextField *campoTextoNombre;
+@property (weak, nonatomic) IBOutlet UITextField *campoTextoTelefono;
+@property (weak, nonatomic) IBOutlet UITextField *campoTextoEmail;
+@property (weak, nonatomic) IBOutlet UITextField *campoTextoFechaNacimiento;
+@property (weak, nonatomic) IBOutlet UIImageView *vistaImagenContacto;
 
 @end
 
 @implementation EditarContactoController
 
+// Implementación del método de cancelar botón de la vista EDITAR
+- (IBAction)cancelButtonPressed:(id)sender {
+    [self dismissViewControllerAnimated:true completion:nil];
+}
+
+// Implementación del método para guardar los datos de usuario
+- (IBAction)saveButtonPressed:(id)sender {
+    
+    self.contacto.nombre = self.campoTextoNombre.text;
+    self.contacto.telefono = self.campoTextoTelefono.text;
+    self.contacto.email = self.campoTextoEmail.text;
+    
+    NSDateFormatter *formatoFecha = [[NSDateFormatter alloc] init];
+    formatoFecha.dateFormat = @"dd / MM / YYYY";
+    self.contacto.fechadeNacimiento = [formatoFecha dateFromString:self.campoTextoFechaNacimiento.text];
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.campoTextoNombre.text = self.contacto.nombre;
+    self.campoTextoTelefono.text = self.contacto.telefono;
+    self.campoTextoEmail.text = self.contacto.email;
+    
+    NSDateFormatter *formatoFecha = [[NSDateFormatter alloc] init];
+    formatoFecha.dateFormat = @"dd / MM / YYYY";
+    self.campoTextoFechaNacimiento.text = [formatoFecha stringFromDate:self.contacto.fechadeNacimiento];
 }
 
 - (void)didReceiveMemoryWarning {

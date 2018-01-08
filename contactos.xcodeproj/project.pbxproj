@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		095803B52003F4B6009C1423 /* team-placeholder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 095803B42003F4B6009C1423 /* team-placeholder.jpg */; };
 		09E34FCD1FFFF596002F3820 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E34FCC1FFFF596002F3820 /* AppDelegate.m */; };
 		09E34FD31FFFF596002F3820 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09E34FD11FFFF596002F3820 /* Main.storyboard */; };
 		09E34FD51FFFF596002F3820 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09E34FD41FFFF596002F3820 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		095803B42003F4B6009C1423 /* team-placeholder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "team-placeholder.jpg"; path = "Assets.xcassets/team-placeholder.jpg"; sourceTree = "<group>"; };
 		09E34FC81FFFF596002F3820 /* contactos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = contactos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09E34FCB1FFFF596002F3820 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		09E34FCC1FFFF596002F3820 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				09E34FCC1FFFF596002F3820 /* AppDelegate.m */,
 				09E34FD11FFFF596002F3820 /* Main.storyboard */,
 				09E34FD41FFFF596002F3820 /* Assets.xcassets */,
+				095803B42003F4B6009C1423 /* team-placeholder.jpg */,
 				09E34FD61FFFF596002F3820 /* LaunchScreen.storyboard */,
 				09E34FD91FFFF596002F3820 /* Info.plist */,
 				09E34FDA1FFFF596002F3820 /* main.m */,
@@ -167,6 +170,7 @@
 			files = (
 				09E34FD81FFFF596002F3820 /* LaunchScreen.storyboard in Resources */,
 				09E34FD51FFFF596002F3820 /* Assets.xcassets in Resources */,
+				095803B52003F4B6009C1423 /* team-placeholder.jpg in Resources */,
 				09E34FD31FFFF596002F3820 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

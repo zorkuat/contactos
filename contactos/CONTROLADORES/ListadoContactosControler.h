@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseDatos.h"
+#import "Contacto.h"
 
 @interface ListadoContactosControler : UITableViewController
+
+@property (nonatomic) Contacto * contacto;
 
 @property (nonatomic) BaseDatos *bbdd;
 

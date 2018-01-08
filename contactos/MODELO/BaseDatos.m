@@ -34,7 +34,7 @@
         nuevoContacto.telefono = [NSString stringWithFormat:@"%d", telefonoAleatorio];
         NSString *usuarioEmail = [nuevoContacto.nombre.lowercaseString stringByReplacingOccurrencesOfString:@" " withString:@"_"];
         nuevoContacto.email = [NSString stringWithFormat:@"%@@gmail.com",usuarioEmail];
-        nuevoContacto.fechadenacimiento = [NSDate dateWithTimeIntervalSince1970:arc4random_uniform(48)*365*24*60*60];
+        nuevoContacto.fechadeNacimiento = [NSDate dateWithTimeIntervalSince1970:arc4random_uniform(48)*365*24*60*60];
         
         [self.contactos addObject:nuevoContacto];
     }

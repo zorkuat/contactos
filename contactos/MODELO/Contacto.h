@@ -13,6 +13,6 @@
 @property (nonatomic) NSString *nombre;
 @property (nonatomic) NSString *telefono;
 @property (nonatomic) NSString *email;
-@property (nonatomic) NSDate *fechadenacimiento;
+@property (nonatomic) NSDate *fechadeNacimiento;
 
 @end
