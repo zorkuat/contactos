@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Contacto.h"
 
-@interface EditarContactoController : UIViewController
+@interface EditarContactoController : UIViewController<UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (nonatomic) Contacto * contacto;
 

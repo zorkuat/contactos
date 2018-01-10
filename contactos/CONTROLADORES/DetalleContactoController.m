@@ -39,7 +39,9 @@
     self.etiquetaNombre.text = self.contacto.nombre;
     self.etiquetaTelefono.text = self.contacto.telefono;
     self.etiquetaEmail.text = self.contacto.email;
-    
+    if (self.contacto.foto != nil){
+        self.vistaImagenContacto.image = self.contacto.foto;
+    }
     NSDateFormatter *formatoFecha = [[NSDateFormatter alloc] init];
     formatoFecha.dateFormat = @"dd / MM / YYYY";
     self.etiquetaFechaNacimiento.text = [formatoFecha stringFromDate:self.contacto.fechadeNacimiento];

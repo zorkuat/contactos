@@ -55,6 +55,10 @@
     
     cell.textLabel.text = contacto.nombre;
     cell.detailTextLabel.text = contacto.telefono;
+    if(contacto.foto != nil)
+    {
+        cell.imageView.image = contacto.foto ;
+    }
     
     return cell;
 }

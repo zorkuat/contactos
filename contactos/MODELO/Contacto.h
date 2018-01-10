@@ -6,13 +6,14 @@
 //  Copyright © 2018 TATINC. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
+#import <UIKit/UIKit.h>
 @interface Contacto : NSObject
 
 @property (nonatomic) NSString *nombre;
 @property (nonatomic) NSString *telefono;
 @property (nonatomic) NSString *email;
 @property (nonatomic) NSDate *fechadeNacimiento;
+@property (nonatomic) UIImage *foto;
+
 
 @end
