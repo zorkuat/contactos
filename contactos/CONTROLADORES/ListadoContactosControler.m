@@ -8,6 +8,8 @@
 
 #import "ListadoContactosControler.h"
 #import "DetalleContactoController.h"
+#import "EditarContactoController.h"
+
 
 @interface ListadoContactosControler ()
 
@@ -106,7 +108,17 @@
         
         // Vamos a pasar la información
         escenaDestino.contacto = contactoSeleccionado;
-        
+    }
+    else if ([segue.identifier isEqualToString:@"crearContacto"])
+    {
+        EditarContactoController *escenaDestino = segue.destinationViewController;
+        escenaDestino.delegado = self;
+    }
+    else if ([segue.identifier isEqualToString:@"anadirContacto"])
+    {
+        UINavigationController *navController = segue.destinationViewController;
+        EditarContactoController *escenaDestino = (id)navController.topViewController;
+        escenaDestino.delegado = self;
     }
  
 }
@@ -173,5 +185,18 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - Editar Contacto Delegate
+
+-(void)cancelar
+{
+    [self dismissViewControllerAnimated:true completion:nil];
+}
+
+-(void)guardarContacto:(Contacto *)contacto
+{
+    [self.bbdd.contactos addObject:self.contacto];
+    [self dismissViewControllerAnimated:true completion:nil];
+}
 
 @end

@@ -21,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0915CD0C2007EE65009B3017 /* EditarContactoDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditarContactoDelegate.h; sourceTree = "<group>"; };
 		095803B42003F4B6009C1423 /* team-placeholder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "team-placeholder.jpg"; path = "Assets.xcassets/team-placeholder.jpg"; sourceTree = "<group>"; };
 		09E34FC81FFFF596002F3820 /* contactos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = contactos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09E34FCB1FFFF596002F3820 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -106,6 +107,7 @@
 				09E34FE91FFFF6AA002F3820 /* DetalleContactoController.m */,
 				09E34FEB1FFFF6CF002F3820 /* EditarContactoController.h */,
 				09E34FEC1FFFF6CF002F3820 /* EditarContactoController.m */,
+				0915CD0C2007EE65009B3017 /* EditarContactoDelegate.h */,
 			);
 			path = CONTROLADORES;
 			sourceTree = "<group>";

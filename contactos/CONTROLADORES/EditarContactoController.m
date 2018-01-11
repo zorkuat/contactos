@@ -29,7 +29,9 @@
 
 // Implementación del método de cancelar botón de la vista EDITAR
 - (IBAction)cancelButtonPressed:(id)sender {
-    [self dismissViewControllerAnimated:true completion:nil];
+    //[self dismissViewControllerAnimated:true completion:nil];
+    
+    [self.delegado cancelar];
 }
 
 // Implementación del método para guardar los datos de usuario
@@ -43,6 +45,9 @@
     NSDateFormatter *formatoFecha = [[NSDateFormatter alloc] init];
     formatoFecha.dateFormat = @"dd / MM / YYYY";
     self.contacto.fechadeNacimiento = [formatoFecha dateFromString:self.campoTextoFechaNacimiento.text];
+    
+    //
+    [self.delegado guardarContacto:self.contacto];
     
 }
 
@@ -92,6 +97,11 @@
     // Para quitar el espacio que se queda entre el picker y la barra de accesory view.
     // En realidad son movidas de constraints y su puta madre.
     
+    if(self.contacto == nil)
+    {
+        self.contacto = [[Contacto alloc] init];
+    }
+    
     if (self.contacto.foto != nil)
     {
         self.vistaImagenContacto.image = self.contacto.foto;
@@ -101,7 +111,6 @@
     self.vistaImagenContacto.layer.cornerRadius = 8;
     
     self.pickerFecha.translatesAutoresizingMaskIntoConstraints = false;
-    self.pickerFecha.date = self.contacto.fechadeNacimiento;
     
     self.campoTextoFechaNacimiento.inputView = self.pickerFecha;
     self.campoTextoFechaNacimiento.inputAccessoryView = self.barraEditor;
@@ -113,9 +122,14 @@
     self.campoTextoTelefono.text = self.contacto.telefono;
     self.campoTextoEmail.text = self.contacto.email;
     
-    NSDateFormatter *formatoFecha = [[NSDateFormatter alloc] init];
-    formatoFecha.dateFormat = @"dd / MM / YYYY";
-    self.campoTextoFechaNacimiento.text = [formatoFecha stringFromDate:self.contacto.fechadeNacimiento];
+    if(self.contacto.fechadeNacimiento != nil)
+    {
+        self.pickerFecha.date = self.contacto.fechadeNacimiento;
+        NSDateFormatter *formatoFecha = [[NSDateFormatter alloc] init];
+        formatoFecha.dateFormat = @"dd / MM / YYYY";
+        self.campoTextoFechaNacimiento.text = [formatoFecha stringFromDate:self.contacto.fechadeNacimiento];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "BaseDatos.h"
 #import "Contacto.h"
+#import "EditarContactoDelegate.h"
 
-@interface ListadoContactosControler : UITableViewController
+@interface ListadoContactosControler : UITableViewController <EditarContactoDelegate>
 
 @property (nonatomic) Contacto * contacto;
 
