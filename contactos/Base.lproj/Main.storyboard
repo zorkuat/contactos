@@ -41,9 +41,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="verContacto" id="ALQ-3b-QnC"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -58,6 +55,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="verContacto" id="ISa-aG-OBN"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4L6-sm-v1h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -402,6 +402,6 @@
         <image name="team-placeholder.jpg" width="320" height="320"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zhR-eI-qY5"/>
+        <segue reference="1aw-Mt-soq"/>
     </inferredMetricsTieBreakers>
 </document>

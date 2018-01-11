@@ -22,6 +22,8 @@
     
     [self.bbdd loadDatabase];
     
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    
     NSLog(@"%ld",self.bbdd.contactos.count);
 }
 
@@ -45,22 +47,49 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 // #warning Incomplete implementation, return the number of rows
-    return self.bbdd.contactos.count;
+    return self.bbdd.contactos.count + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    Contacto *contacto = self.bbdd.contactos[indexPath.row];
-    
-    cell.textLabel.text = contacto.nombre;
-    cell.detailTextLabel.text = contacto.telefono;
-    if(contacto.foto != nil)
+    if (indexPath.row < self.bbdd.contactos.count)
     {
-        cell.imageView.image = contacto.foto ;
+        Contacto *contacto = self.bbdd.contactos[indexPath.row];
+        cell.textLabel.text = contacto.nombre;
+        cell.detailTextLabel.text = contacto.telefono;
+        if(contacto.foto != nil)
+        {
+            cell.imageView.image = contacto.foto ;
+        }
     }
-    
+    else
+    {
+        cell.textLabel.text = @"Nuevo contacto";
+        cell.detailTextLabel.text = @"";
+        
+    }
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.row < self.bbdd.contactos.count)
+    {
+        [self performSegueWithIdentifier:@"verContacto" sender:nil];
+    }
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row < self.bbdd.contactos.count)
+    {
+        return UITableViewCellEditingStyleDelete;
+    }
+    else
+    {
+        return UITableViewCellEditingStyleInsert;
+    }
 }
 
 // Este método es el Adolfo Suárez de los métodos.
@@ -82,23 +111,42 @@
  
 }
 
-/*
+
 // Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
+
+
 // Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+                                            forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        [self.bbdd.contactos removeObjectAtIndex:indexPath.row];
+        
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        
+        /// Insercción a nivel de datos
+        Contacto *nuevoContacto = [[Contacto alloc] init];
+        nuevoContacto.nombre = @"Nombre contacto";
+        [self.bbdd.contactos addObject: nuevoContacto];
+        
+        /// Insercción a nivel de vista
+        [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationRight];
     }   
+}
+
+/*
+ /// Método para insertar en lugar de borrar.
+ -(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleInsert;
 }
 */
 
